@@ -1,6 +1,6 @@
 # IMPORTANTE: Durante a análise sintática, não chamamos a função responsável pela análise léxica porque ela já foi executada, o que 
 # vai contra a proposto inicial do trabalho na qual teríamos que chamar a função scanner quando precisasse na análise sintática.
-# Por isso foi criado uma lista com todas tokens reconhecidos pela analisador léxico para que sejá usada na análise sintática. E não 
+# Por isso foi criado uma lista com todas tokens reconhecidos pela analisador léxico para que seja usada na análise sintática. E não 
 # garantimos que o analisador sintático consiga tratar todos os erros possíveis. Por isso, pode acontecer uma falha caso 
 # altere o código fonte com algum tipo de erro que não conseguimos prever.
 
