@@ -1,3 +1,9 @@
+# IMPORTANTE: Durante a análise sintática, não chamamos a função responsável pela análise léxica porque ela já foi executada, o que 
+# vai contra a proposto inicial do trabalho na qual teríamos que chamar a função scanner quando precisasse na análise sintática.
+# Por isso foi criado uma lista com todas tokens reconhecidos pela analisador léxico para que sejá usada na análise sintática. E não 
+# garantimos que o analisador sintático consiga tratar todos os erros possíveis. Por isso, pode acontecer uma falha caso 
+# altere o código fonte com algum tipo de erro que não conseguimos prever.
+
 # < ---------------------------- Léxico ---------------------------- >
 # Implementando o dicionário de dados
 # cada linha da tabela de transição corresponde a um estado começando em q0. As colunas representam as transições.
@@ -201,19 +207,16 @@ def scanner(conteudo, length):
                     saida = "Lexema: " + lexema + "\tToken: " + estados_finais[estadoatual] + "\tTipo: " + str(tipo_estados_finais[estadoatual])
                     lista.insert(ponteiro, [estados_finais[estadoatual], lexema, str(tipo_estados_finais[estadoatual]), linha, coluna])
                     #fazer uma fila dos tokens
-                    #print(saida)
                 else:
                     if (lexema in tabela_token_part1):
                        saida = "Lexema: " + lexema + "\tToken: " + tabela_token_part1[lexema] + "\tTipo: " + str(tabela_token_part2[lexema])
                        lista.insert(ponteiro, [tabela_token_part1[lexema], lexema, str(tipo_estados_finais[estadoatual]), linha , coluna])
                        #fazer uma fila dos tokens
-                       #print(saida)
                     else:
                        # Quando um id é lido e não está na tabela de símbolos ele é adicionado
                         saida = "Lexema: " + lexema + "\tToken: " + estados_finais[estadoatual] + "\tTipo: " + str(tipo_estados_finais[estadoatual])
                         lista.insert(ponteiro, [estados_finais[estadoatual], lexema, str(tipo_estados_finais[estadoatual]), linha, coluna])
                         #fazer uma fila dos tokens
-                        #print(saida)
                         tabela_token_part1[lexema] = estados_finais[estadoatual]
                         tabela_token_part2[lexema] = None
                 estadoatual = 0
@@ -618,8 +621,6 @@ def parser():
            tipo_goto = tabela_Goto[t][dicionario_goto[not_terminal]]
            #Empilha o valor encontrado na tabela e imprime a redução
            pilha.insert(0, int(tipo_goto))
-           #print("Redução: ", reducoes[reduz])
-           #print(pilha_semantica[1])
            #Chama o token, lexema, tipo, linha e coluna
                
            semantico(reduz, not_terminal, a[3])
@@ -740,12 +741,10 @@ def tipo_tabelaDeSimbolos(tipo):
     tabela_token_part2[tipo] = tipoAtributo
     
     atributos = pilha_semantica[3]
-    #print(atributos)
     atributos[2] = tipoAtributo
     pilha_semantica[3] = atributos
 
     tabela_token_part2[atributos[1]] = tipoAtributo
-    #print(pilha_semantica)
 
 def semantico(reduz, not_Terminal, linhaErro):
     
@@ -1102,7 +1101,6 @@ def main():
     scanner(conteudo, len(conteudo))
     print("--------------------------------------")
     parser()
-    #print(objeto)
     file.close()
 
 main()
