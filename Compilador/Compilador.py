@@ -707,8 +707,8 @@ def parser():
                     a = lista[ponteiro]
                     token = a[0]
 
-                    #Tokens de sincronização. Quando encontra um erro o analisador sintáticobusca da lista de tokens pelo token de sincronização
-                    #Quando ele é encontrado, o parser desenpilha o topo da pilha
+                    #Tokens de sincronização. Quando encontra um erro o analisador sintático busca da lista de tokens pelo token de sincronização
+                    #Quando ele é encontrado, o parser desempilha o topo da pilha
                     if(token == 'pt_v' or token == 'fc_p' or token == 'id'  or token == 'fimse' or token == 'fim'):
                         pilha.pop(0)
                         break
