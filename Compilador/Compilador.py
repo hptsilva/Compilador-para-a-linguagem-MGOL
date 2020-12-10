@@ -11,7 +11,7 @@
 #             q0|  |  |  |....
 #             q1|  |  |  |.....
 
-Tabela_de_Transição = [ 
+Tabela_de_Transicao = [ 
     [1, 9, None, 10, None, 7, None, 0, 0, 0, 17, 19, 13, 13, 13, 13, 14, 15, 16, 18, 9, 9, None, None],
     [1, None, None, None, None, None, 2, None, None, None, None, None, None, None, None, None, None, None, None, None,
      4, 4, None],
@@ -200,7 +200,7 @@ def scanner(conteudo, length):
             lexema = ""
         else:
             
-            a = Tabela_de_Transição[estadoatual][alfabeto[conteudo[aux]]]
+            a = Tabela_de_Transicao[estadoatual][alfabeto[conteudo[aux]]]
 
             if a is None and estadoatual in estados_finais:
                 if (estados_finais[estadoatual] != 'id'):
