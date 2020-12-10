@@ -189,11 +189,11 @@ def scanner(conteudo, length):
     #tipo de erro especificado no dicionário 'erros léxicos'
     while(ponteiro < length):
         if (conteudo[aux] not in alfabeto):
-            print("----------------------------------")
+            print("--------------------------------------")
             print("Caracter inválido do alfabeto")
             verificador = False
             print("Na linha: ", linha, ". Na coluna: ", coluna)
-            print("----------------------------------")
+            print("--------------------------------------")
             estadoatual = 0
             ponteiro += 1
             aux += 1
@@ -222,30 +222,30 @@ def scanner(conteudo, length):
                 estadoatual = 0
                 lexema = ""
             elif (a is None) and (estadoatual not in estados_finais):
-                print("----------------------------------")
+                print("--------------------------------------")
                 print(estados_erros[estadoatual])
                 verificador = False
                 print("Na linha ", linha, "e coluna ", coluna)
-                print("----------------------------------")
+                print("--------------------------------------")
                 estadoatual = 0
                 ponteiro += 1
                 aux += 1
                 coluna += 1
                 lexema = ""
             elif (estadoatual == 10 and ponteiro == (length -1)):
-                print("----------------------------------")
+                print("--------------------------------------")
                 print(estados_erros[estadoatual])
                 verificador = False
                 print(" \nNa linha ", linha, "e coluna ", coluna)
-                print("----------------------------------")
+                print("--------------------------------------")
                 
                 ponteiro += 1
             elif (estadoatual == 7) and ponteiro == (length -1): 
-                print("----------------------------------")
+                print("--------------------------------------")
                 print(estados_erros[estadoatual])
                 verificador = False
                 print("\nNa linha ", linha, "e coluna ", coluna)
-                print("----------------------------------")
+                print("--------------------------------------")
                 
                 ponteiro += 1           
             else:
