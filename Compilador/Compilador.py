@@ -1087,7 +1087,6 @@ def semantico(reduz, not_Terminal, linhaErro):
 # < ---------------------------- Main ---------------------------- >
 def main():
     
-    global objeto
     # Faz a leitura do arquivo "fonte.txt"
     file = open('fonte.txt', 'r')
 
